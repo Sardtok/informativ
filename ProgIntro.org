@@ -1,0 +1,298 @@
+#+OPTIONS: toc:nil
+#+OPTIONS:reveal_mathjax:t
+#+TITLE: Programmering
+#+AUTHOR: Sigmund Hansen
+#+EMAIL: sigmunha@ifi.uio.no
+#+REVEAL_THEME: night
+#+REVEAL_EXTRA_CSS: bigsource.css
+
+* Hva er programmering?
+#+ATTR_REVEAL: :frag roll-in
+  - Eksperimentering
+  - Kreativt
+  - Problemløsing
+
+* Processing
+  - Programmeringsspråk
+  - Utviklingsmiljø
+  - http://processing.org/
+
+* Variabler
+  - Navngitte data
+  - Verdien kan endres
+  - Flere forskjellige typer
+
+** Heltall
+   - int (kort for integer)
+   - Tall uten desimaler
+
+#+BEGIN_SRC java
+int a = 5;
+#+END_SRC
+
+** Flyttall
+   - float (kort for floating point number)
+   - Tall med desimaler
+   - Ikke helt presise (7,2 siffer)
+
+#+BEGIN_SRC java
+float pi = 3.14;
+#+END_SRC
+
+** Sannhetsverdier (boolske verdier)
+   - boolean (etter George Boole)
+   - En verdi som er sann (true) eller usann (false)
+
+#+BEGIN_SRC java
+boolean awesome = true;
+#+END_SRC
+
+** Tegn
+   - char (kort for character)
+   - Bokstaver, tall og andre symboler
+
+#+BEGIN_SRC java
+char c = 'c';
+#+END_SRC
+
+** Strenger (tekst)
+   - String (en streng med tegn)
+   - En sammensatt datatype
+
+#+BEGIN_SRC java
+String text = "Can I haz cheezeburger?";
+#+END_SRC
+
+* Uttrykk
+  Produserer verdier
+  
+** Enkle uttrykk
+   - Direkteverdier (5, 3.14, 'c', true, etc.)
+   - Variabelreferanser (a, pi, c, awesome, etc.)
+   - Funksjonskall (add(5, 3), mer om funksjoner senere)
+
+** Aritmetiske uttrykk
+   - Pluss +, minus -, gange *, dele /
+   - Brukt på heltall, får man heltall
+   - Hvis ett tall er et flyttall, får man flyttall
+   - Når man deler heltall, rundes svaret mot null (desimalene forsvinner)
+
+#+BEGIN_SRC java
+5 + 3 // 8
+5 - 3 // 2
+pi * 2 // 6.28
+11 / 5 // 2
+11 / 5.0 // 2.2
+#+END_SRC
+
+** Sammenlikningsuttrykk
+   - To verdier kan sammenliknes
+   - Mer enn ~>~, mer enn eller lik ~>=~, mindre enn ~<~, mindre enn eller lik ~>=~, lik ~==~, ulik ~!=~
+   - Produserer boolske verdier
+
+#+BEGIN_SRC java
+3 > 3 // false
+3 >= 3 // true
+3 < 3 // false
+3 <= 3 // true
+3 == 3 // true
+3 != 3 // false
+#+END_SRC
+
+** Logiske uttrykk
+   - Slår sammen boolske verdier
+   - Og &&, eller ||, ikke ! (logisk negering)
+
+   #+BEGIN_SRC java
+true && true // Gir true
+true && false // Gir false
+true || false // Gir true
+false || false // Gir false
+!true // Gir false
+   #+END_SRC
+
+* Setninger
+  Instruksjoner for hva et program gjør.
+
+** Tilordning
+   - Sette verdien til en variabel
+   - Variabel til venstre, og et uttrykk til høyre for likhetstegn
+
+#+BEGIN_SRC java
+a = 5 + 3;
+a = a + 1;
+pi = 3.14159;
+awesome = !awesome;
+c = 'C';
+#+END_SRC
+
+** Funksjonskall
+   - En setning som setter i gang en funksjon
+   - Lar deg utføre sammensetninger av setninger
+
+#+BEGIN_SRC java
+doLotsOfStuff();
+#+END_SRC
+
+** Flytkontroll
+   Setninger som lar deg bestemme flyten i et program.
+
+   Dvs. du kan gjøre forskjellige ting avhengig av tilstanden.
+
+*** Hvis x, så y
+    *if* lar deg utføre setninger basert på om et uttrykk er sant
+
+#+BEGIN_SRC java
+if (age < 18) {
+    println("No drinks for you!");
+}
+#+END_SRC
+
+*** Hvis, ellers
+    *else* er en valgfri utvidelse hvis innhold utføres om uttrykket er usant
+
+#+BEGIN_SRC java
+if (age < 18) {
+    println("No drinks for you!");
+} else {
+    println("Old'd!");
+}
+#+END_SRC
+
+*** Hvis, eller hvis, ellers
+    *else if* lar deg utføre andre setninger
+    hvis uttrykket i if-testen var usant, men et annet uttrykk er sant
+
+#+BEGIN_SRC java
+if (age < 18) {
+    println("No drinks for you!");
+} else if (age < 30) {
+    println("Awesome!");
+} else {
+    println("Old'd!");
+}
+#+END_SRC
+
+*** Løkker
+    - Lar deg gjøre ting flere ganger
+    - Finnes i forskjellige varianter, men vi ser på én: for each-løkken
+    - for each-løkken lar deg gjøre noe med mange verdier av en type
+    - Kan leses for hver x i liste
+
+#+BEGIN_SRC java
+int sum = 0;
+for (int x : listOfIntegers) {
+    sum = sum + x;
+}
+#+END_SRC
+
+* Funksjoner
+  En samling setninger som kan utføres ved å kalle på funksjonen
+
+** Parametere
+   - Funksjoner kan ta parametere
+   - Verdiene til parameterne blir tilgjengelige som variabler i funksjonen
+
+#+BEGIN_SRC java
+void printNumber(int number) {
+    println("Got number: " + number);
+}
+#+END_SRC
+
+** Returverdier
+   - Funksjoner kan returnere en verdi
+   - Returtypen void betyr at funksjonen ikke retunerer en verdi
+
+#+BEGIN_SRC java
+int add(int a, int b) {
+    println("Adding " + a + " and " + b);
+
+    return a + b;
+}
+#+END_SRC
+
+* Sammensatte datatyper
+  En sammensatt datatype kan bestå av flere verdier
+
+** Klasser
+   - En klasse beskriver hvordan en datatype ser ut
+   - Inneholder funksjoner for å jobbe med et objekt av klassen
+   - Har en spesiell funksjon for å initialisere objekter (konstruktør)
+
+** Objekter
+   - En verdi som har en klasse som type
+   - *this* er navnet på objektet en metode ble kalt for,
+
+     eller objektet som initialiseres i konstruktøren
+
+** Eksempel
+
+   #+BEGIN_SRC java
+class Circle {
+    float radius;
+
+    // Konstruktør
+    Circle(float radius) {
+        this.radius = radius;
+    }
+
+    // Metode som returnerer omkrets
+    float circumference() {
+        return 2 * radius * PI;
+    }
+}
+   #+END_SRC
+
+* Oppgaver
+
+** Tekst på skjermen
+   - Lag tre variabler:
+     - int a
+     - float b
+     - String c
+   - Gi variablene verdier
+   - Skriv verdiene av disse variablene på skjermen med text-funksjonen
+   - Prøv å endre verdiene og skriv de samme variablene på to steder
+
+** Bevegende sirkel
+   - Lag to variabler:
+     - float x
+     - float y
+   - Gi dem en startverdi, for eksempel midten av skjermen
+   - Tegn en sirkel med ellipse-funksjonen på posisjonen til sirkelen
+   - For hver opptegning øker eller senker du x og y
+
+** Følg musepekeren
+   - Ta utgangspunkt i den bevegende sirkelen
+   - Istedenfor x og y, bruker du mouseX og mouseY
+
+** Nullstilling med musetrykk
+   - Ta utgangspunkt i den bevegende sirkelen
+   - Lag funksjonen mouseClicked og endre x og y til musens posisjon
+   - La fortsatt x og y variere over tid
+
+#+BEGIN_SRC java
+void mouseClicked() {
+    // Endre posisjonen her
+}
+#+END_SRC
+
+** Flere sirkler
+   - Ta utgangspunkt i Circles-prosjektet
+   - Legg til en draw-funksjon i Circle-klassen som kan brukes til å
+     tegne en sirkel
+   - Legg til opptegning av alle sirklene i listen i draw-funksjonen
+     til programmet (Hint: bruk en løkke)
+   - Legg til flere sirkler når brukeren trykker med musa
+   - Hvis du får tid, kan du:
+     - Utvide funksjonaliteten til sirklene (bevegelse, størrelse og liknende)
+
+** Tegn med musa
+   - Det finnes også en boolsk variabel som heter mousePressed
+   - Den er sann om museknappen er holdt inne
+   - Oppdater x og y til musens posisjon hvert bilde
+   - Tegn en strek med funksjonen line fra forrige posisjon til musens
+     posisjon, hvis museknappen er holdt inne
+   - Hva skjer om du oppdaterer x og y før du tegner streken?
+   - Hvis du får tid, kan du:
+     - Gjøre det mulig å bytte farger
