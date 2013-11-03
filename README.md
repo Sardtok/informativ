@@ -6,7 +6,7 @@ solutions for exercises. All presentations are in Norwegian, as they
 are used to teach programming, robotics and other aspects of computer
 science to Norwegian high schoolers visiting the University of Oslo.
 
-*** Compiling Org-Presentations ***
+## Compiling Org-Presentations ##
 
 Org-presentations can be compiled into presentations with any Org-mode
 presentation exporter in Emacs. Some of the options used are specific
