@@ -1,0 +1,157 @@
+#+OPTIONS: toc:nil
+#+OPTIONS: reveal_mathjax:t
+#+TITLE: Mekanikk
+#+AUTHOR: Sigmund Hansen
+#+EMAIL: sigmunha@ifi.uio.no
+#+REVEAL_THEME: night
+#+REVEAL_EXTRA_CSS: bigsource.css
+
+\begin{equation}
+\def\sfrac#1#2{%
+    \raise.75ex{\small#1}%
+    \kern-.15em/\kern-.15em%
+    \lower.25ex{\small#2}}
+\end{equation}
+
+* Newtonsk mekanikk
+  - Beskriver hvordan krefter forårsaker bevegelse
+  - ~F = ma~ - Newtons andre lov om bevegelse
+  - Dette skal vi simulere!
+
+* Koordinater
+  - 2 dimensjoner: X og Y
+  - Origo: øverst til venstre
+  - Y-aksen er invertert (ned er positiv)
+  - Hvor mange piksler er en meter?
+
+* Vektorer
+  - To eller flere verdier (én per dimensjon)
+  - X og Y i 2D
+  - Kan representere: posisjon, hastighet, akselerasjon, kraft
+
+** Uavhengighetsprinsippet
+   - Hver dimensjon i en vektor er uavhengig av hver andre
+   - Det vil si at vi kan regne på X uavhengig av Y
+
+** Addisjon
+   - $\vec{u} + \vec{v} = \left(u_x + v_x, u_y + v_y\right)$
+   - Tilsvarende ved subtraksjon:
+     $\vec{u} - \vec{v} = \left(u_x - v_x, u_y - v_y\right)$
+
+** Skalarmultiplikasjon
+   - $a\vec{u} = \left(au_x, au_y\right)$
+   - Tilsvarende for deling med skalar:
+     $\frac{\vec{u}}{a} = \left(\frac{u_x}{a}, \frac{u_y}{a}\right)$
+   - Eller:
+     $\frac{1}{a}\vec{u} = \left(\frac{1}{a}u_x, \frac{1}{a}u_y\right)$
+
+** Lengde
+   - Lengden finner vi ved hjelp av Pythagoras læresetning
+   - $|\vec{u}| = \sqrt{u_x^2 + u_y^2}$
+
+** Normalisering
+   - Enhetsvektor er en vektor med lengde 1
+   - Normalisering skalerer en vektor til en enhetsvektor
+   - Vektoren deles på sin lengde:
+     $\hat{u} = \frac{\vec{u}}{|\vec{u}|}$
+
+* Posisjon
+  - Plassering i rommet: X og Y
+  - Meter?
+  - Piksler?
+  - Noen krefter har posisjon (gravitasjon)
+
+* Hastighet
+  - Endring i posisjon over tid
+  - Meter per sekund? $\sfrac{m}{s}$
+  - Piksler per sekund? $\sfrac{px}{s}$
+  - Posisjon endres i X og Y
+
+* Akselerasjon
+  - Endring i hastighet over tid
+  - Meter per sekund per sekund? $\sfrac{m}{s^2}$
+  - Piksler per sekund per sekund? $\sfrac{px}{s^2}$
+  - Hastigheten endres i X og Y
+
+* Krefter
+  - ~F = ma~
+  - $1N = 1kg \sfrac{m}{s^2}$
+  - $a = \frac{F}{m}$
+  - $1 \frac{N}{kg} = 1 \sfrac{m}{s^2}$
+  - Vi ser på tyngdekraft
+
+** På nært hold
+   - En kraft som virker rett ned
+   - Retning på kraften er ikke avhengig av posisjon
+   - Representere kun som en vektor?
+
+*** Gravitasjon som virker rett ned
+    - Ser bort fra luftmotstand og massetetthet
+    - Tilnærmet konstant akselerasjon ($9.81 \sfrac{m}{s^2}$)
+    - Hvordan representere dette?
+
+*** Forslag til løsning
+    - Krefter kan ha en funksjon som returnerer akselerasjonen
+    - Den tar imot fysiske objekter som argument
+    - Disse har masse, posisjon, hastighet
+    - Vil fungere for andre typer krefter også
+
+#+BEGIN_SRC java
+    class Force {
+        Vector acceleration(PhysicalObject o) {
+            return new Vector(0, 9.81);
+        }
+    }
+#+END_SRC
+
+
+** På lang avstand
+   - En kraft som virker mot et legemes sentrum
+   - Avhengig av massen og avstanden til objektene
+   - $F = G\frac{m_1m_2}{r^2}$
+   - $a_1 = \frac{F}{m_1}
+     = G\frac{\not{m_1}m_2}{\not{m_1}r^2}
+     = G\frac{m_2}{r^2}$
+   - Tilsvarende for det andre legemet
+   - $G \approx 6.674 \times 10^{-11}$
+   - $G$ tilpasses programmet, prøv ut flere verdier
+
+*** Distansen mellom objektene
+    - $\vec{r} = \vec{p_2} - \vec{p_1}$
+    - $r^2 = \vec{r}^2 = r_x^2 + r_y^2$
+    - Vi kan nå regne ut aksellerasjonen
+
+*** Retning på kraften
+    - Kraften har retning
+    - Vi har allerede magnituden
+    - $\vec{a_1} = \hat{r}G\frac{m_2}{r^2}$
+
+* Simulering
+  - Regn ut aksellerasjonen (summer aksellerasjonen fra alle kreftene)
+  - Oppdater hastigheten basert på tilbakelagt tid og aksellerasjonen
+  - Oppdater posisjonen basert på tilbakelagt tid og hastigheten
+
+* Oppgaver
+** Lag en vektorklasse
+   - Dere kan ta utgangspunkt i Vectors.pde
+   - Fyll ut funksjonene slik at de passer beskrivelsen
+
+** Kast med liten ball
+   - Lag et program som simulerer kast med liten ball
+   - Bruk vektorklassen dere lagde i forrige oppgave
+   - Start med en hastighet og en retning på ballen (f.eks. $\vec{v} =
+     (7, -12)$)
+   - Hvis du får tid, kan du:
+     - La brukeren "kaste" baller med musa
+     - Legge til en forenklet luftmotstand som en kraft
+       (aksellerasjonen bestemmes av hastigheten til ballen
+       multiplisert med et negativt tall).
+
+** Stuff in space
+   - Lag et program som simulerer to objekter i rommet og deres
+     tiltrekning på hverandre
+   - Gi objektene en starthastighet og se hvordan det påvirker
+     simuleringen
+   - Hvis du får tid, kan du:
+     - Prøve å legge til flere objekter
+     - La brukeren legge inn nye objekter med musa
