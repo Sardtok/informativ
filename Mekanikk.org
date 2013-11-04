@@ -6,6 +6,9 @@
 #+REVEAL_THEME: night
 #+REVEAL_EXTRA_CSS: bigsource.css
 
+# Use sky or simple as the theme if you want a light background
+
+# Macro for slanted fractions (slash instead of horizontal line).
 \begin{equation}
 \def\sfrac#1#2{%
     \raise.75ex{\small#1}%
