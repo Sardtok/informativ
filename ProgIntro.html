@@ -1,0 +1,639 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>(Programmering)</title>
+<meta name="author" content="(Sigmund Hansen)"/>
+<link rel="stylesheet" href="./reveal.js/css/reveal.min.css"/>
+<link rel="stylesheet" href="./reveal.js/css/theme/night.css" id="theme"/>
+<link rel="stylesheet" href="bigsource.css"/>
+<link rel="stylesheet" href="./reveal.js/css/print/pdf.css" type="text/css" media="print"/>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<h1>Programmering</h1>
+<h2>Sigmund Hansen</h2>
+<h2><a href="mailto:sigmunha@ifi.uio.no">sigmunha@ifi.uio.no</a></h2>
+<h2></h2></section>
+
+<section>
+<section id="sec-1" >
+
+<h2><span class="section-number-2">1</span> Hva er programmering?</h2>
+<ul class="org-ul">
+<li class="fragment roll-in">Eksperimentering
+</li>
+<li class="fragment roll-in">Kreativt
+</li>
+<li class="fragment roll-in">Problemløsing
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-2" >
+
+<h2><span class="section-number-2">2</span> Processing</h2>
+<ul class="org-ul">
+<li>Programmeringsspråk
+</li>
+<li>Utviklingsmiljø
+</li>
+<li><a href="http://processing.org/">http://processing.org/</a>
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-3" >
+
+<h2><span class="section-number-2">3</span> Variabler</h2>
+<ul class="org-ul">
+<li>Navngitte data
+</li>
+<li>Verdien kan endres
+</li>
+<li>Flere forskjellige typer
+</li>
+</ul>
+
+</section>
+<section id="sec-3-1" >
+
+<h3><span class="section-number-3">3.1</span> Heltall</h3>
+<ul class="org-ul">
+<li>int (kort for integer)
+</li>
+<li>Tall uten desimaler
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #228b22;">int</span> <span style="color: #a0522d;">a</span> = 5;
+</pre>
+</div>
+</section>
+<section id="sec-3-2" >
+
+<h3><span class="section-number-3">3.2</span> Flyttall</h3>
+<ul class="org-ul">
+<li>float (kort for floating point number)
+</li>
+<li>Tall med desimaler
+</li>
+<li>Ikke helt presise (7,2 siffer)
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #228b22;">float</span> <span style="color: #a0522d;">pi</span> = 3.14;
+</pre>
+</div>
+</section>
+<section id="sec-3-3" >
+
+<h3><span class="section-number-3">3.3</span> Sannhetsverdier (boolske verdier)</h3>
+<ul class="org-ul">
+<li>boolean (etter George Boole)
+</li>
+<li>En verdi som er sann (true) eller usann (false)
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #228b22;">boolean</span> <span style="color: #a0522d;">awesome</span> = <span style="color: #008b8b;">true</span>;
+</pre>
+</div>
+</section>
+<section id="sec-3-4" >
+
+<h3><span class="section-number-3">3.4</span> Tegn</h3>
+<ul class="org-ul">
+<li>char (kort for character)
+</li>
+<li>Bokstaver, tall og andre symboler
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #228b22;">char</span> <span style="color: #a0522d;">c</span> = <span style="color: #8b2252;">'c'</span>;
+</pre>
+</div>
+</section>
+<section id="sec-3-5" >
+
+<h3><span class="section-number-3">3.5</span> Strenger (tekst)</h3>
+<ul class="org-ul">
+<li>String (en streng med tegn)
+</li>
+<li>En sammensatt datatype
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #228b22;">String</span> <span style="color: #a0522d;">text</span> = <span style="color: #8b2252;">"Can I haz cheezeburger?"</span>;
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-4" >
+
+<h2><span class="section-number-2">4</span> Uttrykk</h2>
+<p>
+Produserer verdier
+</p>
+
+</section>
+<section id="sec-4-1" >
+
+<h3><span class="section-number-3">4.1</span> Enkle uttrykk</h3>
+<ul class="org-ul">
+<li>Direkteverdier (5, 3.14, 'c', true, etc.)
+</li>
+<li>Variabelreferanser (a, pi, c, awesome, etc.)
+</li>
+<li>Funksjonskall (add(5, 3), mer om funksjoner senere)
+</li>
+</ul>
+</section>
+<section id="sec-4-2" >
+
+<h3><span class="section-number-3">4.2</span> Aritmetiske uttrykk</h3>
+<ul class="org-ul">
+<li>Pluss +, minus -, gange *, dele /
+</li>
+<li>Brukt på heltall, får man heltall
+</li>
+<li>Hvis ett tall er et flyttall, får man flyttall
+</li>
+<li>Når man deler heltall, rundes svaret mot null (desimalene forsvinner)
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-java">5 + 3 <span style="color: #b22222;">// </span><span style="color: #b22222;">8</span>
+5 - 3 <span style="color: #b22222;">// </span><span style="color: #b22222;">2</span>
+pi * 2 <span style="color: #b22222;">// </span><span style="color: #b22222;">6.28</span>
+11 / 5 <span style="color: #b22222;">// </span><span style="color: #b22222;">2</span>
+11 / 5.0 <span style="color: #b22222;">// </span><span style="color: #b22222;">2.2</span>
+</pre>
+</div>
+</section>
+<section id="sec-4-3" >
+
+<h3><span class="section-number-3">4.3</span> Sammenlikningsuttrykk</h3>
+<ul class="org-ul">
+<li>To verdier kan sammenliknes
+</li>
+<li>Mer enn <code>&gt;</code>, mer enn eller lik <code>&gt;=</code>, mindre enn <code>&lt;</code>, mindre enn eller lik <code>&gt;=</code>, lik <code>==</code>, ulik <code>!=</code>
+</li>
+<li>Produserer boolske verdier
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-java">3 &gt; 3 <span style="color: #b22222;">// </span><span style="color: #b22222;">false</span>
+3 &gt;= 3 <span style="color: #b22222;">// </span><span style="color: #b22222;">true</span>
+3 &lt; 3 <span style="color: #b22222;">// </span><span style="color: #b22222;">false</span>
+3 &lt;= 3 <span style="color: #b22222;">// </span><span style="color: #b22222;">true</span>
+3 == 3 <span style="color: #b22222;">// </span><span style="color: #b22222;">true</span>
+3 != 3 <span style="color: #b22222;">// </span><span style="color: #b22222;">false</span>
+</pre>
+</div>
+</section>
+<section id="sec-4-4" >
+
+<h3><span class="section-number-3">4.4</span> Logiske uttrykk</h3>
+<ul class="org-ul">
+<li>Slår sammen boolske verdier
+</li>
+<li>Og &amp;&amp;, eller ||, ikke ! (logisk negering)
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #008b8b;">true</span> &amp;&amp; <span style="color: #008b8b;">true</span> <span style="color: #b22222;">// </span><span style="color: #b22222;">Gir true</span>
+<span style="color: #008b8b;">true</span> &amp;&amp; <span style="color: #008b8b;">false</span> <span style="color: #b22222;">// </span><span style="color: #b22222;">Gir false</span>
+<span style="color: #008b8b;">true</span> || <span style="color: #008b8b;">false</span> <span style="color: #b22222;">// </span><span style="color: #b22222;">Gir true</span>
+<span style="color: #008b8b;">false</span> || <span style="color: #008b8b;">false</span> <span style="color: #b22222;">// </span><span style="color: #b22222;">Gir false</span>
+!<span style="color: #008b8b;">true</span> <span style="color: #b22222;">// </span><span style="color: #b22222;">Gir false</span>
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-5" >
+
+<h2><span class="section-number-2">5</span> Setninger</h2>
+<p>
+Instruksjoner for hva et program gjør.
+</p>
+
+</section>
+<section id="sec-5-1" >
+
+<h3><span class="section-number-3">5.1</span> Tilordning</h3>
+<ul class="org-ul">
+<li>Sette verdien til en variabel
+</li>
+<li>Variabel til venstre, og et uttrykk til høyre for likhetstegn
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-java">a = 5 + 3;
+a = a + 1;
+pi = 3.14159;
+awesome = !awesome;
+c = <span style="color: #8b2252;">'C'</span>;
+</pre>
+</div>
+</section>
+<section id="sec-5-2" >
+
+<h3><span class="section-number-3">5.2</span> Funksjonskall</h3>
+<ul class="org-ul">
+<li>En setning som setter i gang en funksjon
+</li>
+<li>Lar deg utføre sammensetninger av setninger
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-java">doLotsOfStuff();
+</pre>
+</div>
+</section>
+<section id="sec-5-3" >
+
+<h3><span class="section-number-3">5.3</span> Flytkontroll</h3>
+<p>
+Setninger som lar deg bestemme flyten i et program.
+</p>
+
+<p>
+Dvs. du kan gjøre forskjellige ting avhengig av tilstanden.
+</p>
+
+</section>
+<section id="sec-5-3-1" >
+
+<h4><span class="section-number-4">5.3.1</span> Hvis x, så y</h4>
+<p>
+<b>if</b> lar deg utføre setninger basert på om et uttrykk er sant
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #a020f0;">if</span> (age &lt; 18) {
+    println(<span style="color: #8b2252;">"No drinks for you!"</span>);
+}
+</pre>
+</div>
+</section>
+<section id="sec-5-3-2" >
+
+<h4><span class="section-number-4">5.3.2</span> Hvis, ellers</h4>
+<p>
+<b>else</b> er en valgfri utvidelse hvis innhold utføres om uttrykket er usant
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #a020f0;">if</span> (age &lt; 18) {
+    println(<span style="color: #8b2252;">"No drinks for you!"</span>);
+} <span style="color: #a020f0;">else</span> {
+    println(<span style="color: #8b2252;">"Old'd!"</span>);
+}
+</pre>
+</div>
+</section>
+<section id="sec-5-3-3" >
+
+<h4><span class="section-number-4">5.3.3</span> Hvis, eller hvis, ellers</h4>
+<p>
+<b>else if</b> lar deg utføre andre setninger
+hvis uttrykket i if-testen var usant, men et annet uttrykk er sant
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #a020f0;">if</span> (age &lt; 18) {
+    println(<span style="color: #8b2252;">"No drinks for you!"</span>);
+} <span style="color: #a020f0;">else</span> <span style="color: #a020f0;">if</span> (age &lt; 30) {
+    println(<span style="color: #8b2252;">"Awesome!"</span>);
+} <span style="color: #a020f0;">else</span> {
+    println(<span style="color: #8b2252;">"Old'd!"</span>);
+}
+</pre>
+</div>
+</section>
+<section id="sec-5-3-4" >
+
+<h4><span class="section-number-4">5.3.4</span> Løkker</h4>
+<ul class="org-ul">
+<li>Lar deg gjøre ting flere ganger
+</li>
+<li>Finnes i forskjellige varianter, men vi ser på én: for each-løkken
+</li>
+<li>for each-løkken lar deg gjøre noe med mange verdier av en type
+</li>
+<li>Kan leses for hver x i liste
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #228b22;">int</span> <span style="color: #a0522d;">sum</span> = 0;
+<span style="color: #a020f0;">for</span> (<span style="color: #228b22;">int</span> <span style="color: #a0522d;">x</span> : listOfIntegers) {
+    sum = sum + x;
+}
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-6" >
+
+<h2><span class="section-number-2">6</span> Funksjoner</h2>
+<p>
+En samling setninger som kan utføres ved å kalle på funksjonen
+</p>
+
+</section>
+<section id="sec-6-1" >
+
+<h3><span class="section-number-3">6.1</span> Parametere</h3>
+<ul class="org-ul">
+<li>Funksjoner kan ta parametere
+</li>
+<li>Verdiene til parameterne blir tilgjengelige som variabler i funksjonen
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #228b22;">void</span> <span style="color: #0000ff;">printNumber</span>(<span style="color: #228b22;">int</span> <span style="color: #a0522d;">number</span>) {
+    println(<span style="color: #8b2252;">"Got number: "</span> + number);
+}
+</pre>
+</div>
+</section>
+<section id="sec-6-2" >
+
+<h3><span class="section-number-3">6.2</span> Returverdier</h3>
+<ul class="org-ul">
+<li>Funksjoner kan returnere en verdi
+</li>
+<li>Returtypen void betyr at funksjonen ikke retunerer en verdi
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #228b22;">int</span> <span style="color: #0000ff;">add</span>(<span style="color: #228b22;">int</span> <span style="color: #a0522d;">a</span>, <span style="color: #228b22;">int</span> <span style="color: #a0522d;">b</span>) {
+    println(<span style="color: #8b2252;">"Adding "</span> + a + <span style="color: #8b2252;">" and "</span> + b);
+
+    <span style="color: #a020f0;">return</span> a + b;
+}
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-7" >
+
+<h2><span class="section-number-2">7</span> Sammensatte datatyper</h2>
+<p>
+En sammensatt datatype kan bestå av flere verdier
+</p>
+
+</section>
+<section id="sec-7-1" >
+
+<h3><span class="section-number-3">7.1</span> Klasser</h3>
+<ul class="org-ul">
+<li>En klasse beskriver hvordan en datatype ser ut
+</li>
+<li>Inneholder funksjoner for å jobbe med et objekt av klassen
+</li>
+<li>Har en spesiell funksjon for å initialisere objekter (konstruktør)
+</li>
+</ul>
+</section>
+<section id="sec-7-2" >
+
+<h3><span class="section-number-3">7.2</span> Objekter</h3>
+<ul class="org-ul">
+<li>En verdi som har en klasse som type
+</li>
+<li><b>this</b> er navnet på objektet en metode ble kalt for,
+
+<p>
+eller objektet som initialiseres i konstruktøren
+</p>
+</li>
+</ul>
+</section>
+<section id="sec-7-3" >
+
+<h3><span class="section-number-3">7.3</span> Eksempel</h3>
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #a020f0;">class</span> <span style="color: #228b22;">Circle</span> {
+    <span style="color: #228b22;">float</span> <span style="color: #a0522d;">radius</span>;
+
+    <span style="color: #b22222;">// </span><span style="color: #b22222;">Konstrukt&#248;r</span>
+    Circle(<span style="color: #228b22;">float</span> <span style="color: #a0522d;">radius</span>) {
+        <span style="color: #a020f0;">this</span>.radius = radius;
+    }
+
+    <span style="color: #b22222;">// </span><span style="color: #b22222;">Metode som returnerer omkrets</span>
+    <span style="color: #228b22;">float</span> <span style="color: #0000ff;">circumference</span>() {
+        <span style="color: #a020f0;">return</span> 2 * radius * PI;
+    }
+}
+</pre>
+</div>
+</section>
+</section>
+<section>
+<section id="sec-8" >
+
+<h2><span class="section-number-2">8</span> Oppgaver</h2>
+</section>
+<section id="sec-8-1" >
+
+<h3><span class="section-number-3">8.1</span> Tekst på skjermen</h3>
+<ul class="org-ul">
+<li>Lag tre variabler:
+<ul class="org-ul">
+<li>int a
+</li>
+<li>float b
+</li>
+<li>String c
+</li>
+</ul>
+</li>
+<li>Gi variablene verdier
+</li>
+<li>Skriv verdiene av disse variablene på skjermen med text-funksjonen
+</li>
+<li>Prøv å endre verdiene og skriv de samme variablene på to steder
+</li>
+</ul>
+</section>
+<section id="sec-8-2" >
+
+<h3><span class="section-number-3">8.2</span> Bevegende sirkel</h3>
+<ul class="org-ul">
+<li>Lag to variabler:
+<ul class="org-ul">
+<li>float x
+</li>
+<li>float y
+</li>
+</ul>
+</li>
+<li>Gi dem en startverdi, for eksempel midten av skjermen
+</li>
+<li>Tegn en sirkel med ellipse-funksjonen på posisjonen til sirkelen
+</li>
+<li>For hver opptegning øker eller senker du x og y
+</li>
+</ul>
+</section>
+<section id="sec-8-3" >
+
+<h3><span class="section-number-3">8.3</span> Følg musepekeren</h3>
+<ul class="org-ul">
+<li>Ta utgangspunkt i den bevegende sirkelen
+</li>
+<li>Istedenfor x og y, bruker du mouseX og mouseY
+</li>
+</ul>
+</section>
+<section id="sec-8-4" >
+
+<h3><span class="section-number-3">8.4</span> Nullstilling med musetrykk</h3>
+<ul class="org-ul">
+<li>Ta utgangspunkt i den bevegende sirkelen
+</li>
+<li>Lag funksjonen mouseClicked og endre x og y til musens posisjon
+</li>
+<li>La fortsatt x og y variere over tid
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #228b22;">void</span> <span style="color: #0000ff;">mouseClicked</span>() {
+    <span style="color: #b22222;">// </span><span style="color: #b22222;">Endre posisjonen her</span>
+}
+</pre>
+</div>
+</section>
+<section id="sec-8-5" >
+
+<h3><span class="section-number-3">8.5</span> Flere sirkler</h3>
+<ul class="org-ul">
+<li>Ta utgangspunkt i Circles-prosjektet
+</li>
+<li>Legg til en draw-funksjon i Circle-klassen som kan brukes til å
+tegne en sirkel
+</li>
+<li>Legg til opptegning av alle sirklene i listen i draw-funksjonen
+til programmet (Hint: bruk en løkke)
+</li>
+<li>Legg til flere sirkler når brukeren trykker med musa
+</li>
+<li>Hvis du får tid, kan du:
+<ul class="org-ul">
+<li>Utvide funksjonaliteten til sirklene (bevegelse, størrelse og liknende)
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="sec-8-6" >
+
+<h3><span class="section-number-3">8.6</span> Tegn med musa</h3>
+<ul class="org-ul">
+<li>Det finnes også en boolsk variabel som heter mousePressed
+</li>
+<li>Den er sann om museknappen er holdt inne
+</li>
+<li>Oppdater x og y til musens posisjon hvert bilde
+</li>
+<li>Tegn en strek med funksjonen line fra forrige posisjon til musens
+posisjon, hvis museknappen er holdt inne
+</li>
+<li>Hva skjer om du oppdaterer x og y før du tegner streken?
+</li>
+<li>Hvis du får tid, kan du:
+<ul class="org-ul">
+<li>Gjøre det mulig å bytte farger
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.min.js"></script>
+<script>
+
+        		// Full list of configuration options available here:
+        		// https://github.com/hakimel/reveal.js#configuration
+        		Reveal.initialize({
+        			controls: true,
+        			progress: true,
+        			history: false,
+        			center: true,
+        			rollingLinks: false,
+        			keyboard: true,
+        			overview: true,
+        			 // slide width
+        			 // slide height
+        			 // slide margin
+        			 // slide minimum scaling factor
+        			 // slide maximum scaling factor
+
+
+        			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        			transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        			transitionSpeed: 'default',
+
+        			// Optional libraries used to extend on reveal.js
+        			dependencies: [
+        				{ src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+        				,{ src: './reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        				,{ src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+        				,{ src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+         				
+        			]
+        		});
+</script>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>(Mekanikk)</title>
+<meta name="author" content="(Sigmund Hansen)"/>
+<link rel="stylesheet" href="./reveal.js/css/reveal.min.css"/>
+<link rel="stylesheet" href="./reveal.js/css/theme/night.css" id="theme"/>
+<link rel="stylesheet" href="bigsource.css"/>
+<link rel="stylesheet" href="./reveal.js/css/print/pdf.css" type="text/css" media="print"/>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section>
+<h1>Mekanikk</h1>
+<h2>Sigmund Hansen</h2>
+<h2><a href="mailto:sigmunha@ifi.uio.no">sigmunha@ifi.uio.no</a></h2>
+<h2></h2></section>
+\begin{equation}
+\def\sfrac#1#2{%
+    \raise.75ex{\small#1}%
+    \kern-.15em/\kern-.15em%
+    \lower.25ex{\small#2}}
+\end{equation}
+
+<section>
+<section id="sec-1" >
+
+<h2><span class="section-number-2">1</span> Newtonsk mekanikk</h2>
+<ul class="org-ul">
+<li>Beskriver hvordan krefter forårsaker bevegelse
+</li>
+<li><code>F = ma</code> - Newtons andre lov om bevegelse
+</li>
+<li>Dette skal vi simulere!
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-2" >
+
+<h2><span class="section-number-2">2</span> Koordinater</h2>
+<ul class="org-ul">
+<li>2 dimensjoner: X og Y
+</li>
+<li>Origo: øverst til venstre
+</li>
+<li>Y-aksen er invertert (ned er positiv)
+</li>
+<li>Hvor mange piksler er en meter?
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-3" >
+
+<h2><span class="section-number-2">3</span> Vektorer</h2>
+<ul class="org-ul">
+<li>To eller flere verdier (én per dimensjon)
+</li>
+<li>X og Y i 2D
+</li>
+<li>Kan representere: posisjon, hastighet, akselerasjon, kraft
+</li>
+</ul>
+
+</section>
+<section id="sec-3-1" >
+
+<h3><span class="section-number-3">3.1</span> Uavhengighetsprinsippet</h3>
+<ul class="org-ul">
+<li>Hver dimensjon i en vektor er uavhengig av hver andre
+</li>
+<li>Det vil si at vi kan regne på X uavhengig av Y
+</li>
+</ul>
+</section>
+<section id="sec-3-2" >
+
+<h3><span class="section-number-3">3.2</span> Addisjon</h3>
+<ul class="org-ul">
+<li>\(\vec{u} + \vec{v} = \left(u_x + v_x, u_y + v_y\right)\)
+</li>
+<li>Tilsvarende ved subtraksjon:
+     \(\vec{u} - \vec{v} = \left(u_x - v_x, u_y - v_y\right)\)
+</li>
+</ul>
+</section>
+<section id="sec-3-3" >
+
+<h3><span class="section-number-3">3.3</span> Skalarmultiplikasjon</h3>
+<ul class="org-ul">
+<li>\(a\vec{u} = \left(au_x, au_y\right)\)
+</li>
+<li>Tilsvarende for deling med skalar:
+     \(\frac{\vec{u}}{a} = \left(\frac{u_x}{a}, \frac{u_y}{a}\right)\)
+</li>
+<li>Eller:
+     \(\frac{1}{a}\vec{u} = \left(\frac{1}{a}u_x, \frac{1}{a}u_y\right)\)
+</li>
+</ul>
+</section>
+<section id="sec-3-4" >
+
+<h3><span class="section-number-3">3.4</span> Lengde</h3>
+<ul class="org-ul">
+<li>Lengden finner vi ved hjelp av Pythagoras læresetning
+</li>
+<li>\(|\vec{u}| = \sqrt{u_x^2 + u_y^2}\)
+</li>
+</ul>
+</section>
+<section id="sec-3-5" >
+
+<h3><span class="section-number-3">3.5</span> Normalisering</h3>
+<ul class="org-ul">
+<li>Enhetsvektor er en vektor med lengde 1
+</li>
+<li>Normalisering skalerer en vektor til en enhetsvektor
+</li>
+<li>Vektoren deles på sin lengde:
+     \(\hat{u} = \frac{\vec{u}}{|\vec{u}|}\)
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-4" >
+
+<h2><span class="section-number-2">4</span> Posisjon</h2>
+<ul class="org-ul">
+<li>Plassering i rommet: X og Y
+</li>
+<li>Meter?
+</li>
+<li>Piksler?
+</li>
+<li>Noen krefter har posisjon (gravitasjon)
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-5" >
+
+<h2><span class="section-number-2">5</span> Hastighet</h2>
+<ul class="org-ul">
+<li>Endring i posisjon over tid
+</li>
+<li>Meter per sekund? \(\sfrac{m}{s}\)
+</li>
+<li>Piksler per sekund? \(\sfrac{px}{s}\)
+</li>
+<li>Posisjon endres i X og Y
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-6" >
+
+<h2><span class="section-number-2">6</span> Akselerasjon</h2>
+<ul class="org-ul">
+<li>Endring i hastighet over tid
+</li>
+<li>Meter per sekund per sekund? \(\sfrac{m}{s^2}\)
+</li>
+<li>Piksler per sekund per sekund? \(\sfrac{px}{s^2}\)
+</li>
+<li>Hastigheten endres i X og Y
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-7" >
+
+<h2><span class="section-number-2">7</span> Krefter</h2>
+<ul class="org-ul">
+<li><code>F = ma</code>
+</li>
+<li>\(1N = 1kg \sfrac{m}{s^2}\)
+</li>
+<li>\(a = \frac{F}{m}\)
+</li>
+<li>\(1 \frac{N}{kg} = 1 \sfrac{m}{s^2}\)
+</li>
+<li>Vi ser på tyngdekraft
+</li>
+</ul>
+
+</section>
+<section id="sec-7-1" >
+
+<h3><span class="section-number-3">7.1</span> På nært hold</h3>
+<ul class="org-ul">
+<li>En kraft som virker rett ned
+</li>
+<li>Retning på kraften er ikke avhengig av posisjon
+</li>
+<li>Representere kun som en vektor?
+</li>
+</ul>
+
+</section>
+<section id="sec-7-1-1" >
+
+<h4><span class="section-number-4">7.1.1</span> Gravitasjon som virker rett ned</h4>
+<ul class="org-ul">
+<li>Ser bort fra luftmotstand og massetetthet
+</li>
+<li>Tilnærmet konstant akselerasjon (\(9.81 \sfrac{m}{s^2}\))
+</li>
+<li>Hvordan representere dette?
+</li>
+</ul>
+</section>
+<section id="sec-7-1-2" >
+
+<h4><span class="section-number-4">7.1.2</span> Forslag til løsning</h4>
+<ul class="org-ul">
+<li>Krefter kan ha en funksjon som returnerer akselerasjonen
+</li>
+<li>Den tar imot fysiske objekter som argument
+</li>
+<li>Disse har masse, posisjon, hastighet
+</li>
+<li>Vil fungere for andre typer krefter også
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #a020f0;">class</span> <span style="color: #228b22;">Force</span> {
+    <span style="color: #228b22;">Vector</span> <span style="color: #0000ff;">acceleration</span>(<span style="color: #228b22;">PhysicalObject</span> <span style="color: #a0522d;">o</span>) {
+        <span style="color: #a020f0;">return</span> <span style="color: #a020f0;">new</span> <span style="color: #228b22;">Vector</span>(0, 9.81);
+    }
+}
+</pre>
+</div>
+
+</section>
+<section id="sec-7-2" >
+
+<h3><span class="section-number-3">7.2</span> På lang avstand</h3>
+<ul class="org-ul">
+<li>En kraft som virker mot et legemes sentrum
+</li>
+<li>Avhengig av massen og avstanden til objektene
+</li>
+<li>\(F = G\frac{m_1m_2}{r^2}\)
+</li>
+<li>\(a_1 = \frac{F}{m_1}
+     = G\frac{\not{m_1}m_2}{\not{m_1}r^2}
+     = G\frac{m_2}{r^2}\)
+</li>
+<li>Tilsvarende for det andre legemet
+</li>
+<li>\(G \approx 6.674 \times 10^{-11}\)
+</li>
+<li>\(G\) tilpasses programmet, prøv ut flere verdier
+</li>
+</ul>
+
+</section>
+<section id="sec-7-2-1" >
+
+<h4><span class="section-number-4">7.2.1</span> Distansen mellom objektene</h4>
+<ul class="org-ul">
+<li>\(\vec{r} = \vec{p_2} - \vec{p_1}\)
+</li>
+<li>\(r^2 = \vec{r}^2 = r_x^2 + r_y^2\)
+</li>
+<li>Vi kan nå regne ut akselerasjonen
+</li>
+</ul>
+</section>
+<section id="sec-7-2-2" >
+
+<h4><span class="section-number-4">7.2.2</span> Retning på kraften</h4>
+<ul class="org-ul">
+<li>Kraften har retning
+</li>
+<li>Vi har allerede magnituden
+</li>
+<li>\(\vec{a_1} = \hat{r}G\frac{m_2}{r^2}\)
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-8" >
+
+<h2><span class="section-number-2">8</span> Simulering</h2>
+<ul class="org-ul">
+<li>Regn ut akselerasjonen (summer akselerasjonen fra alle kreftene)
+</li>
+<li>Oppdater hastigheten basert på tilbakelagt tid og akselerasjonen
+</li>
+<li>Oppdater posisjonen basert på tilbakelagt tid og hastigheten
+</li>
+</ul>
+</section>
+</section>
+<section>
+<section id="sec-9" >
+
+<h2><span class="section-number-2">9</span> Oppgaver</h2>
+</section>
+<section id="sec-9-1" >
+
+<h3><span class="section-number-3">9.1</span> Lag en vektorklasse</h3>
+<ul class="org-ul">
+<li>Dere kan ta utgangspunkt i Vectors.pde
+</li>
+<li>Fyll ut funksjonene slik at de passer beskrivelsen
+</li>
+</ul>
+</section>
+<section id="sec-9-2" >
+
+<h3><span class="section-number-3">9.2</span> Kast med liten ball</h3>
+<ul class="org-ul">
+<li>Lag et program som simulerer kast med liten ball
+</li>
+<li>Bruk vektorklassen dere lagde i forrige oppgave
+</li>
+<li>Start med en hastighet og en retning på ballen (f.eks. \(\vec{v} =
+     (7, -12)\))
+</li>
+<li>Hvis du får tid, kan du:
+<ul class="org-ul">
+<li>La brukeren "kaste" baller med musa
+</li>
+<li>Legge til en forenklet luftmotstand som en kraft
+(akselerasjonen bestemmes av hastigheten til ballen
+multiplisert med et negativt tall).
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="sec-9-3" >
+
+<h3><span class="section-number-3">9.3</span> Stuff in space</h3>
+<ul class="org-ul">
+<li>Lag et program som simulerer to objekter i rommet og deres
+tiltrekning på hverandre
+</li>
+<li>Gi objektene en starthastighet og se hvordan det påvirker
+simuleringen
+</li>
+<li>Hvis du får tid, kan du:
+<ul class="org-ul">
+<li>Prøve å legge til flere objekter
+</li>
+<li>La brukeren legge inn nye objekter med musa
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+</div>
+</div>
+<script src="./reveal.js/lib/js/head.min.js"></script>
+<script src="./reveal.js/js/reveal.min.js"></script>
+<script>
+
+        		// Full list of configuration options available here:
+        		// https://github.com/hakimel/reveal.js#configuration
+        		Reveal.initialize({
+        			controls: true,
+        			progress: true,
+        			history: false,
+        			center: true,
+        			rollingLinks: false,
+        			keyboard: true,
+        			overview: true,
+        			 // slide width
+        			 // slide height
+        			 // slide margin
+        			 // slide minimum scaling factor
+        			 // slide maximum scaling factor
+
+
+        			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        			transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        			transitionSpeed: 'default',
+
+        			// Optional libraries used to extend on reveal.js
+        			dependencies: [
+        				{ src: './reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } }
+        				,{ src: './reveal.js/plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } }
+        				,{ src: './reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        				,{ src: './reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } }
+        				,{ src: './reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './reveal.js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+        				// { src: './reveal.js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+         				
+        			]
+        		});
+</script>
+</body>
+</html>
