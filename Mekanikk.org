@@ -122,7 +122,7 @@
 *** Distansen mellom objektene
     - $\vec{r} = \vec{p_2} - \vec{p_1}$
     - $r^2 = \vec{r}^2 = r_x^2 + r_y^2$
-    - Vi kan nå regne ut aksellerasjonen
+    - Vi kan nå regne ut akselerasjonen
 
 *** Retning på kraften
     - Kraften har retning
@@ -130,8 +130,8 @@
     - $\vec{a_1} = \hat{r}G\frac{m_2}{r^2}$
 
 * Simulering
-  - Regn ut aksellerasjonen (summer aksellerasjonen fra alle kreftene)
-  - Oppdater hastigheten basert på tilbakelagt tid og aksellerasjonen
+  - Regn ut akselerasjonen (summer akselerasjonen fra alle kreftene)
+  - Oppdater hastigheten basert på tilbakelagt tid og akselerasjonen
   - Oppdater posisjonen basert på tilbakelagt tid og hastigheten
 
 * Oppgaver
@@ -147,7 +147,7 @@
    - Hvis du får tid, kan du:
      - La brukeren "kaste" baller med musa
      - Legge til en forenklet luftmotstand som en kraft
-       (aksellerasjonen bestemmes av hastigheten til ballen
+       (akselerasjonen bestemmes av hastigheten til ballen
        multiplisert med et negativt tall).
 
 ** Stuff in space
