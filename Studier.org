@@ -1,0 +1,71 @@
+#+OPTIONS: toc:nil
+#+OPTIONS: reveal_mathjax:t
+#+TITLE: Studier
+#+AUTHOR:
+#+EMAIL:
+#+REVEAL_THEME: night
+#+REVEAL_EXTRA_CSS: bigsource.css
+
+# Use sky or simple as the theme if you want a light background
+
+# Macro for slanted fractions (slash instead of horizontal line).
+\begin{equation}
+\def\sfrac#1#2{%
+    \raise.75ex{\small#1}%
+    \kern-.15em/\kern-.15em%
+    \lower.25ex{\small#2}}
+\end{equation}
+
+* Bachelorprogrammer
+  - Design, bruk og interaksjon
+  - Nanoelektronikk og robotikk
+  - Programmering og nettverk
+  - Språk og kommunikasjon
+
+* Design, bruk og interaksjon
+  Design av systemer
+
+** Hva lærer du?
+   - Design av programvare
+   - Hvordan gjøre programmer brukervennlige
+   - Hvordan finne fram til det brukerne vil ha
+
+** Hva kan du bli?
+   - ?
+
+* Nanoelektronikk og robotikk
+  Kretsdesign og programmering av maskinvare
+
+  Krever R1-matte, R2 anbefales
+
+** Hva lærer du?
+   - Elektronikk
+   - Programmering
+   - Kinematikk, kretser og signaler
+    
+** Hva kan du bli?
+   - ?
+
+* Programmering og nettverk
+  Utvikling av programvare
+
+  Krever R1-matte
+
+** Hva lærer du?
+   - Programmering
+   - Kommunikasjon mellom maskiner
+   - Hvordan maskiner fungerer og kan brukes effektivt
+
+** Hva kan du bli?
+   - ?
+
+* Språk og kommunikasjon
+  Utvikling av programvare med fokus på språkbehandling
+
+** Hva lærer du?
+   - Programmering
+   - Språk, lingvistikk, filosofi eller psykologi
+   - Hvordan jobbe med menneskelig språk i en maskin
+
+** Hva kan du bli?
+   - ?
