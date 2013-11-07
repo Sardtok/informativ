@@ -17,10 +17,10 @@
 \end{equation}
 
 * Bachelorprogrammer
-  - Design, bruk og interaksjon
-  - Nanoelektronikk og robotikk
-  - Programmering og nettverk
-  - Språk og kommunikasjon
+  - [[https://www.uio.no/studier/program/inf-design/][Design, bruk og interaksjon]]
+  - [[https://www.uio.no/studier/program/inf-nor/][Nanoelektronikk og robotikk]]
+  - [[https://www.uio.no/studier/program/inf-pro/][Programmering og nettverk]]
+  - [[https://www.uio.no/studier/program/inf-sprok/][Språk og kommunikasjon]]
 
 * Design, bruk og interaksjon
   Design av systemer
@@ -30,8 +30,8 @@
    - Hvordan gjøre programmer brukervennlige
    - Hvordan finne fram til det brukerne vil ha
 
-** Hva kan du bli?
-   - ?
+# ** Hva kan du bli?
+#   - ?
 
 * Nanoelektronikk og robotikk
   Kretsdesign og programmering av maskinvare
@@ -43,8 +43,8 @@
    - Programmering
    - Kinematikk, kretser og signaler
     
-** Hva kan du bli?
-   - ?
+# ** Hva kan du bli?
+#   - ?
 
 * Programmering og nettverk
   Utvikling av programvare
@@ -56,8 +56,8 @@
    - Kommunikasjon mellom maskiner
    - Hvordan maskiner fungerer og kan brukes effektivt
 
-** Hva kan du bli?
-   - ?
+# ** Hva kan du bli?
+#   - ?
 
 * Språk og kommunikasjon
   Utvikling av programvare med fokus på språkbehandling
@@ -67,5 +67,5 @@
    - Språk, lingvistikk, filosofi eller psykologi
    - Hvordan jobbe med menneskelig språk i en maskin
 
-** Hva kan du bli?
-   - ?
+# ** Hva kan du bli?
+#   - ?
